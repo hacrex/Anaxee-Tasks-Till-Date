@@ -20,6 +20,7 @@
     --sans: 'Syne', sans-serif;
   }
 
+
   * { margin: 0; padding: 0; box-sizing: border-box; }
 
   body {
@@ -54,7 +55,7 @@
   /* Header */
   header {
     margin-bottom: 64px;
-    border-left: 3px solid var(--accent);
+    border-left: 3px solid var(--accent2);
     padding-left: 20px;
   }
 
@@ -102,69 +103,94 @@
     background: var(--border);
   }
 
-  /* Frequency grid */
+  /* Frequency timeline — mirrors year-block layout */
   .freq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-    gap: 16px;
+    position: relative;
     margin-bottom: 60px;
   }
 
+  .freq-grid::before {
+    content: '';
+    position: absolute;
+    left: 68px;
+    top: 0; bottom: 0;
+    width: 1px;
+    background: linear-gradient(to bottom, var(--accent2), transparent);
+    opacity: 0.3;
+  }
+
   .freq-card {
+    display: flex;
+    gap: 32px;
+    margin-bottom: 40px;
+    align-items: flex-start;
+    position: relative;
+  }
+
+  .freq-marker {
+    flex-shrink: 0;
+    width: 56px;
+    text-align: right;
+    position: relative;
+  }
+
+  .freq-label {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    line-height: 1.2;
+    padding-top: 18px;
+  }
+  .freq-card.daily   .freq-label { color: var(--accent); }
+  .freq-card.weekly  .freq-label { color: var(--accent2); }
+  .freq-card.monthly .freq-label { color: var(--accent3); }
+  .freq-card.yearly  .freq-label { color: var(--accent4); }
+
+  .freq-dot {
+    position: absolute;
+    right: -20px;
+    top: 20px;
+    width: 8px;
+    height: 8px;
+    border-radius: 50%;
+    transform: translateX(50%);
+  }
+  .freq-card.daily   .freq-dot { background: var(--accent);  box-shadow: 0 0 10px var(--accent); }
+  .freq-card.weekly  .freq-dot { background: var(--accent2); box-shadow: 0 0 10px var(--accent2); }
+  .freq-card.monthly .freq-dot { background: var(--accent3); box-shadow: 0 0 10px var(--accent3); }
+  .freq-card.yearly  .freq-dot { background: var(--accent4); box-shadow: 0 0 10px var(--accent4); }
+
+  .freq-body {
+    flex: 1;
     background: var(--surface);
     border: 1px solid var(--border);
     border-radius: 8px;
-    padding: 20px;
-    position: relative;
-    overflow: hidden;
+    padding: 20px 24px;
     transition: border-color 0.2s;
   }
+  .freq-card.daily:hover   .freq-body { border-color: rgba(93,255,176,0.3); }
+  .freq-card.weekly:hover  .freq-body { border-color: rgba(59,130,246,0.3); }
+  .freq-card.monthly:hover .freq-body { border-color: rgba(249,115,22,0.3); }
+  .freq-card.yearly:hover  .freq-body { border-color: rgba(167,139,250,0.3); }
 
-  .freq-card:hover { border-color: var(--accent); }
-
-  .freq-card::before {
-    content: '';
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 2px;
-  }
-  .freq-card.daily::before { background: var(--accent); }
-  .freq-card.weekly::before { background: var(--accent2); }
-  .freq-card.monthly::before { background: var(--accent3); }
-  .freq-card.yearly::before { background: var(--accent4); }
-
-  .freq-badge {
-    font-family: var(--mono);
-    font-size: 10px;
-    font-weight: 600;
-    letter-spacing: 0.15em;
-    text-transform: uppercase;
-    padding: 3px 8px;
-    border-radius: 3px;
-    margin-bottom: 14px;
-    display: inline-block;
-  }
-  .freq-card.daily .freq-badge { background: rgba(93,255,176,0.12); color: var(--accent); }
-  .freq-card.weekly .freq-badge { background: rgba(59,130,246,0.12); color: var(--accent2); }
-  .freq-card.monthly .freq-badge { background: rgba(249,115,22,0.12); color: var(--accent3); }
-  .freq-card.yearly .freq-badge { background: rgba(167,139,250,0.12); color: var(--accent4); }
-
-  .freq-card ul {
+  .freq-body ul {
     list-style: none;
     display: flex;
     flex-direction: column;
     gap: 7px;
   }
 
-  .freq-card li {
+  .freq-body li {
     font-size: 13px;
     color: #94a3b8;
-    line-height: 1.45;
+    line-height: 1.5;
     padding-left: 14px;
     position: relative;
   }
 
-  .freq-card li::before {
+  .freq-body li::before {
     content: '›';
     position: absolute;
     left: 0;
@@ -596,6 +622,120 @@
     line-height: 1.55;
   }
 
+  /* ── Hiring & Mentorship Section ── */
+  .hiring-layout {
+    display: flex;
+    flex-direction: column;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  .hiring-top {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+  }
+
+  @media (max-width: 700px) { .hiring-top { grid-template-columns: 1fr; } }
+
+  .hiring-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+    transition: border-color 0.2s;
+  }
+
+  .hiring-panel:hover { border-color: rgba(59,130,246,0.35); }
+
+  .hiring-panel-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent2);
+    margin-bottom: 14px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hiring-panel ul {
+    list-style: none;
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+  }
+
+  .hiring-panel li {
+    font-size: 13px;
+    color: #94a3b8;
+    line-height: 1.5;
+    padding-left: 14px;
+    position: relative;
+  }
+
+  .hiring-panel li::before {
+    content: '›';
+    position: absolute;
+    left: 0;
+    color: var(--muted);
+  }
+
+  /* Interns row */
+  .interns-row {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px 24px;
+  }
+
+  .interns-row-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  .interns-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+  }
+
+  .intern-chip {
+    display: flex;
+    flex-direction: column;
+    gap: 3px;
+    background: rgba(93,255,176,0.05);
+    border: 1px solid rgba(93,255,176,0.15);
+    border-radius: 8px;
+    padding: 10px 14px;
+    transition: border-color 0.2s, transform 0.2s;
+  }
+
+  .intern-chip:hover {
+    border-color: rgba(93,255,176,0.4);
+    transform: translateY(-2px);
+  }
+
+  .intern-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e2e8f0;
+  }
+
+  .intern-role {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.06em;
+  }
+
   /* Skills Grid */
   .skills-grid {
     display: grid;
@@ -640,6 +780,319 @@
     color: #64748b;
     line-height: 1.6;
   }
+
+  /* ── Hosted / Deployed Section ── */
+  .hosted-categories {
+    margin-bottom: 60px;
+    display: flex;
+    flex-direction: column;
+    gap: 36px;
+  }
+
+  .hosted-group-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 12px;
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .hosted-group-title::after {
+    content: '';
+    flex: 1;
+    height: 1px;
+    background: var(--border);
+  }
+
+  .hosted-cards {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    gap: 10px;
+  }
+
+  .hcard {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 14px 16px;
+    display: flex;
+    flex-direction: column;
+    gap: 4px;
+    text-decoration: none;
+    transition: border-color 0.2s, transform 0.2s;
+    cursor: pointer;
+  }
+
+  .hcard:hover {
+    border-color: rgba(93,255,176,0.35);
+    transform: translateY(-2px);
+  }
+
+  .hcard-nolink {
+    cursor: default;
+    opacity: 0.7;
+  }
+
+  .hcard-nolink:hover {
+    border-color: var(--border);
+    transform: none;
+  }
+
+  .hcard-name {
+    font-size: 13px;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.3;
+  }
+
+  .hcard-url {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--accent);
+    letter-spacing: 0.04em;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+  }
+
+  .hcard-nolink .hcard-url {
+    color: var(--muted);
+  }
+
+  .hcard-server {
+    font-family: var(--mono);
+    font-size: 10px;
+    color: var(--muted);
+    margin-top: 2px;
+  }
+
+  /* ── AI & Implementation Section ── */
+  .ai-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-bottom: 60px;
+  }
+
+  .ai-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.2s, transform 0.2s;
+    border-top: 2px solid var(--accent4);
+  }
+
+  .ai-card:nth-child(2) { border-top-color: var(--accent); }
+  .ai-card:nth-child(3) { border-top-color: var(--accent2); }
+  .ai-card:nth-child(4) { border-top-color: var(--accent3); }
+  .ai-card:nth-child(5) { border-top-color: #f43f5e; }
+  .ai-card:nth-child(6) { border-top-color: #fde047; }
+
+  .ai-card:hover {
+    border-color: rgba(167,139,250,0.4);
+    transform: translateY(-2px);
+  }
+
+  .ai-card-icon { font-size: 22px; }
+
+  .ai-card-title {
+    font-size: 14px;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.3;
+  }
+
+  .ai-card-sub {
+    font-family: var(--mono);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .ai-card-desc {
+    font-size: 12px;
+    color: #64748b;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .ai-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .ai-tag {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.08em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: rgba(167,139,250,0.08);
+    color: #c4b5fd;
+    border: 1px solid rgba(167,139,250,0.2);
+  }
+
+  /* ── FinOps & Security Over The Years ── */
+  .finops-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 60px;
+  }
+
+  @media (max-width: 720px) {
+    .finops-layout { grid-template-columns: 1fr; }
+  }
+
+  .finops-panel {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .finops-panel-title {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 600;
+    letter-spacing: 0.14em;
+    text-transform: uppercase;
+    padding: 12px 16px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    gap: 8px;
+  }
+
+  .finops-panel-title.gcp  { color: var(--accent);  background: rgba(93,255,176,0.04); }
+  .finops-panel-title.azure { color: var(--accent2); background: rgba(59,130,246,0.04); }
+
+  /* Cost table */
+  .cost-table {
+    width: 100%;
+    border-collapse: collapse;
+    font-family: var(--mono);
+    font-size: 11px;
+  }
+
+  .cost-table thead tr {
+    background: rgba(255,255,255,0.03);
+    border-bottom: 1px solid var(--border);
+  }
+
+  .cost-table th {
+    padding: 8px 10px;
+    text-align: center;
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: var(--muted);
+    white-space: nowrap;
+  }
+
+  .cost-table th:first-child { text-align: left; }
+
+  .cost-table td {
+    padding: 6px 10px;
+    text-align: center;
+    color: #64748b;
+    border-bottom: 1px solid rgba(31,35,48,0.6);
+    font-size: 10px;
+    white-space: nowrap;
+  }
+
+  .cost-table td:first-child {
+    text-align: left;
+    color: var(--muted);
+    font-weight: 600;
+  }
+
+  .cost-table tbody tr:hover td { background: rgba(255,255,255,0.02); }
+  .cost-table tbody tr:last-child td { border-bottom: none; }
+
+  /* Color-coded cost cells */
+  .cost-high   { color: #f87171 !important; }
+  .cost-mid    { color: #fb923c !important; }
+  .cost-low    { color: #4ade80 !important; }
+  .cost-vlow   { color: var(--accent) !important; font-weight: 700; }
+  .cost-empty  { color: #1f2330 !important; }
+
+  /* Security timeline */
+  .sec-timeline {
+    display: flex;
+    flex-direction: column;
+    gap: 0;
+    grid-column: 1 / -1;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    overflow: hidden;
+  }
+
+  .sec-row {
+    display: grid;
+    grid-template-columns: 90px 110px 1fr;
+    gap: 0;
+    border-bottom: 1px solid var(--border);
+    align-items: stretch;
+  }
+
+  .sec-row:last-child { border-bottom: none; }
+
+  .sec-row:hover { background: rgba(255,255,255,0.015); }
+
+  .sec-year {
+    font-family: var(--mono);
+    font-size: 11px;
+    font-weight: 700;
+    color: var(--accent);
+    padding: 10px 14px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+
+  .sec-type {
+    font-family: var(--mono);
+    font-size: 9px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    padding: 10px 12px;
+    border-right: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+  }
+
+  .sec-type.vuln    { color: #f87171; }
+  .sec-type.audit   { color: var(--accent3); }
+  .sec-type.infra   { color: var(--accent2); }
+  .sec-type.incident { color: #a78bfa; }
+  .sec-type.policy  { color: var(--accent); }
+
+  .sec-detail {
+    font-size: 12px;
+    color: #94a3b8;
+    padding: 10px 14px;
+    line-height: 1.5;
+    display: flex;
+    align-items: center;
+  }
+
+  .sec-detail strong { color: #cbd5e1; }
 </style>
 </head>
 <body>
@@ -647,71 +1100,100 @@
 
   <header>
     <div class="label">// Work Record — Anaxee Digital Runners</div>
-    <h1>Task Log<br><span>2019 – 2026</span></h1>
-    <div class="subtitle">Cloud · Infrastructure · Security · IT Management · DevOps · Web & SEO</div>
+    <h1>Ashvit's Log Book<br><span>2019 – 2026</span></h1>
+    <div class="subtitle">Cloud · DevOps · Infrastructure · Security · IT Management · Web & SEO</div>
   </header>
 
   <!-- ROUTINE TASKS -->
   <div class="section-title">Routine Tasks (Recurring)</div>
   <div class="freq-grid">
+
+    <!-- Daily -->
     <div class="freq-card daily">
-      <div class="freq-badge">Daily</div>
-      <ul>
-        <li><strong>IT Support:</strong> Diagnose & resolve issues on laptops, desktops, network equipment (with IT Team). Install authorised software, patch networks & phones, configure new devices.</li>
-        <li><strong>User Management:</strong> Maintain CRM, G Suite, Dropbox & Spoors permissions. Assign IDs to new users; disable resigned employee accounts.</li>
-        <li><strong>Cloud Monitoring:</strong> AWS — snapshots, backups, RDS, CRM log management, cost alerts. GCP — function logs, backups, Cloud SQL, Cloud DNS, DRAPP VM monitoring. Azure — Azure Monitor, SQL instance, VM metrics, Azure Functions logs, CapRover containers.</li>
-        <li><strong>App & Server Management:</strong> WordPress security checks & plugin updates on CapRover. Spoors server starvation monitoring, cron jobs & scripts. Metabase server logs. Firewall logs on GCP & Azure. SuiteCRM management & backups. ODK server monitoring.</li>
-        <li><strong>Field Operations:</strong> Monitor & escalate Spoors tickets; send case numbers to employees. Resolve Effort Plus login & form submission queries. Partner App issues with IT Team. <em class="note-tag">(Spoors: 2019–May 2023 only)</em></li>
-        <li><strong>Documentation & Reporting:</strong> Review developer docs. Maintain support mailbox reports & employee calling log sheets.</li>
-        <li><strong>Billing:</strong> Generate GWS, GCP & Azure daily usage reports for accounts team.</li>
-        <li><strong>Data Import:</strong> End-of-day CRM customer case import. MasterDB SQL dump backup to GCP Bucket (cron). Spoors user & monthly forms records.</li>
-        <li><strong>App Development Support:</strong> Review Partner App & Partner App Web progress. Coordinate with developers on issues. Play Console updates — real-time location, new features, release cycles.</li>
-        <li><strong>Security:</strong> SSL checks, WordPress best practices, user auth & access reviews, account lockout, firewall & intrusion detection. GCP Security Command Centre & Azure Microsoft Sentinel monitoring.</li>
-        <li><strong>G Suite:</strong> Check Drive & Email storage. Set up new users & disable expired accounts.</li>
-        <li><strong>Spoors/DRAPP:</strong> Create & disable users, check escalated reports, create lists/forms/cases, configure Spoors, create work processes, test Effort Anaxee app.</li>
-        <li><strong>GCP Migration Tasks:</strong> Test CRM, DR Search Tool, Client Portal & FUT on GCP (Cloud Run & Compute Engine). Monitor logs & errors.</li>
-      </ul>
+      <div class="freq-marker">
+        <div class="freq-label">Daily</div>
+        <div class="freq-dot"></div>
+      </div>
+      <div class="freq-body">
+        <ul>
+          <li><strong>IT Support:</strong> Diagnose & resolve issues on laptops, desktops, network equipment (with IT Team). Install authorised software, patch networks & phones, configure new devices.</li>
+          <li><strong>User Management:</strong> Maintain CRM, G Suite, Dropbox & Spoors permissions. Assign IDs to new users; disable resigned employee accounts.</li>
+          <li><strong>Cloud Monitoring:</strong> AWS — snapshots, backups, RDS, CRM log management, cost alerts. GCP — function logs, backups, Cloud SQL, Cloud DNS, DRAPP VM monitoring. Azure — Azure Monitor, SQL instance, VM metrics, Azure Functions logs, CapRover containers.</li>
+          <li><strong>App & Server Management:</strong> WordPress security checks & plugin updates on CapRover. Spoors server starvation monitoring, cron jobs & scripts. Metabase server logs. Firewall logs on GCP & Azure. SuiteCRM management & backups. ODK server monitoring.</li>
+          <li><strong>Field Operations:</strong> Monitor & escalate Spoors tickets; send case numbers to employees. Resolve Effort Plus login & form submission queries. Partner App issues with IT Team. <em class="note-tag">(Spoors: 2019–May 2023 only)</em></li>
+          <li><strong>Documentation & Reporting:</strong> Review developer docs. Maintain support mailbox reports & employee calling log sheets.</li>
+          <li><strong>Billing:</strong> Generate GWS, GCP & Azure daily usage reports for accounts team.</li>
+          <li><strong>Data Import:</strong> End-of-day CRM customer case import. MasterDB SQL dump backup to GCP Bucket (cron). Spoors user & monthly forms records.</li>
+          <li><strong>App Development Support:</strong> Review Partner App & Partner App Web progress. Coordinate with developers on issues. Play Console updates — real-time location, new features, release cycles.</li>
+          <li><strong>Security:</strong> SSL checks, WordPress best practices, user auth & access reviews, account lockout, firewall & intrusion detection. GCP Security Command Centre & Azure Microsoft Sentinel monitoring.</li>
+          <li><strong>G Suite:</strong> Check Drive & Email storage. Set up new users & disable expired accounts.</li>
+          <li><strong>Spoors/DRAPP:</strong> Create & disable users, check escalated reports, create lists/forms/cases, configure Spoors, create work processes, test Effort Anaxee app.</li>
+          <li><strong>GCP Migration Tasks:</strong> Test CRM, DR Search Tool, Client Portal & FUT on GCP (Cloud Run & Compute Engine). Monitor logs & errors.</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Weekly -->
     <div class="freq-card weekly">
-      <div class="freq-badge">Weekly</div>
-      <ul>
-        <li><strong>System Maintenance:</strong> Routine updates & patches for Metabase, WordPress & other servers. Review GCP & Azure resource logs for issues.</li>
-        <li><strong>Backup Management:</strong> Manage critical system backups; test restorations for DR readiness.</li>
-        <li><strong>Support:</strong> Ensure all Spoors tickets are addressed & escalated. Brio GWS tickets & Azure support.</li>
-        <li><strong>Cloud FinOps:</strong> Analyze GCP & Azure usage patterns. Optimize resource allocation; terminate unused resources.</li>
-        <li><strong>Documentation:</strong> Update internal guides for user maintenance, cloud workflows & ticket resolution. Collaborate with developers.</li>
-        <li><strong>Collaboration:</strong> Weekly discussions with Azure & GCP support teams. Schedule calls for progress reviews & updates.</li>
-        <li><strong>Billing Reports:</strong> Generate detailed GWS, GCP & Azure billing reports for accounts team. Address discrepancies.</li>
-        <li><strong>Observability:</strong> Azure Monitor & Uptime Kuma health checks; proactively address performance bottlenecks.</li>
-        <li><strong>Hardware & Network:</strong> Router configuration. System asset log maintenance. Asset management coordination.</li>
-      </ul>
+      <div class="freq-marker">
+        <div class="freq-label">Weekly</div>
+        <div class="freq-dot"></div>
+      </div>
+      <div class="freq-body">
+        <ul>
+          <li><strong>System Maintenance:</strong> Routine updates & patches for Metabase, WordPress & other servers. Review GCP & Azure resource logs for issues.</li>
+          <li><strong>Backup Management:</strong> Manage critical system backups; test restorations for DR readiness.</li>
+          <li><strong>Support:</strong> Ensure all Spoors tickets are addressed & escalated. Brio GWS tickets & Azure support.</li>
+          <li><strong>Cloud FinOps:</strong> Analyze GCP & Azure usage patterns. Optimize resource allocation; terminate unused resources.</li>
+          <li><strong>Documentation:</strong> Update internal guides for user maintenance, cloud workflows & ticket resolution. Collaborate with developers.</li>
+          <li><strong>Collaboration:</strong> Weekly discussions with Azure & GCP support teams. Schedule calls for progress reviews & updates.</li>
+          <li><strong>Billing Reports:</strong> Generate detailed GWS, GCP & Azure billing reports for accounts team. Address discrepancies.</li>
+          <li><strong>Observability:</strong> Azure Monitor & Uptime Kuma health checks; proactively address performance bottlenecks.</li>
+          <li><strong>Hardware & Network:</strong> Router configuration. System asset log maintenance. Asset management coordination.</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Monthly -->
     <div class="freq-card monthly">
-      <div class="freq-badge">Monthly</div>
-      <ul>
-        <li><strong>Security Audits:</strong> WordPress security checks, SSL renewals, cloud compliance reviews. Review & update user permissions across CRM, G Suite & cloud.</li>
-        <li><strong>Infrastructure Upgrades:</strong> Plan & execute updates for tools, servers & infrastructure for compatibility & performance.</li>
-        <li><strong>Reporting & Analytics:</strong> Detailed monthly reports on IT support, cloud usage & cost. Generate Metabase analytics insights for stakeholders. <em class="note-tag">(Spoors ticket reporting: until May 2023)</em></li>
-        <li><strong>Cloud Cost Management:</strong> Analyze & propose optimization strategies for AWS, GCP & Azure. Reconcile cloud billing & prepare forecasts with accounts team.</li>
-        <li><strong>Project Planning:</strong> Enhance monitoring tools — Uptime Kuma, Azure Monitor, GCP Console. Roll out CapRover containerized environment improvements.</li>
-        <li><strong>Spoors Review:</strong> Comprehensive review of ticket logs; identify recurring issue patterns & implement solutions. Provide feedback to field executives.</li>
-        <li><strong>Training:</strong> Knowledge-sharing sessions on IT best practices, cloud tools & security. Update training materials for Effort Nxt & Spoors systems.</li>
-        <li><strong>Backup & DR Testing:</strong> Full-scale disaster recovery testing; verify backup reliability & restoration readiness.</li>
-        <li><strong>Strategy Meetings:</strong> Monthly meetings with Azure & GCP executives on long-term strategies & escalations.</li>
-      </ul>
+      <div class="freq-marker">
+        <div class="freq-label">Monthly</div>
+        <div class="freq-dot"></div>
+      </div>
+      <div class="freq-body">
+        <ul>
+          <li><strong>Security Audits:</strong> WordPress security checks, SSL renewals, cloud compliance reviews. Review & update user permissions across CRM, G Suite & cloud.</li>
+          <li><strong>Infrastructure Upgrades:</strong> Plan & execute updates for tools, servers & infrastructure for compatibility & performance.</li>
+          <li><strong>Reporting & Analytics:</strong> Detailed monthly reports on IT support, cloud usage & cost. Generate Metabase analytics insights for stakeholders. <em class="note-tag">(Spoors ticket reporting: until May 2023)</em></li>
+          <li><strong>Cloud Cost Management:</strong> Analyze & propose optimization strategies for AWS, GCP & Azure. Reconcile cloud billing & prepare forecasts with accounts team.</li>
+          <li><strong>Project Planning:</strong> Enhance monitoring tools — Uptime Kuma, Azure Monitor, GCP Console. Roll out CapRover containerized environment improvements.</li>
+          <li><strong>Spoors Review:</strong> Comprehensive review of ticket logs; identify recurring issue patterns & implement solutions. Provide feedback to field executives.</li>
+          <li><strong>Training:</strong> Knowledge-sharing sessions on IT best practices, cloud tools & security. Update training materials for Effort Nxt & Spoors systems.</li>
+          <li><strong>Backup & DR Testing:</strong> Full-scale disaster recovery testing; verify backup reliability & restoration readiness.</li>
+          <li><strong>Strategy Meetings:</strong> Monthly meetings with Azure & GCP executives on long-term strategies & escalations.</li>
+        </ul>
+      </div>
     </div>
+
+    <!-- Yearly -->
     <div class="freq-card yearly">
-      <div class="freq-badge">Yearly</div>
-      <ul>
-        <li><strong>SSL Renewals:</strong> Renew all web server & application SSL certificates. Google Workspace two-domain renewal.</li>
-        <li><strong>Domain Renewals:</strong> Renew anaxee.com & anaxeetech.com; verify DNS configurations.</li>
-        <li><strong>GWS Renewals:</strong> Renew Google Workspace subscriptions; update billing & adjust plans.</li>
-        <li><strong>Budget & Cost Planning:</strong> Collaborate with accounts team on annual AWS, GCP & Azure budgets. Prepare resource usage forecasts.</li>
-        <li><strong>Hiring:</strong> Screen & shortlist DevOps/Cloud Intern candidates. Conduct technical interviews; evaluate skills. Create interview questionnaires.</li>
-        <li><strong>Hiring Strategy Review:</strong> Review hiring process effectiveness; refine based on feedback.</li>
-        <li><strong>System Overhaul:</strong> Full IT systems review — identify improvement areas. Present proposals for new technologies & workflows to leadership.</li>
-      </ul>
+      <div class="freq-marker">
+        <div class="freq-label">Yearly</div>
+        <div class="freq-dot"></div>
+      </div>
+      <div class="freq-body">
+        <ul>
+          <li><strong>SSL Renewals:</strong> Renew all web server & application SSL certificates. Google Workspace two-domain renewal.</li>
+          <li><strong>Domain Renewals:</strong> Renew anaxee.com & anaxeetech.com; verify DNS configurations.</li>
+          <li><strong>GWS Renewals:</strong> Renew Google Workspace subscriptions; update billing & adjust plans.</li>
+          <li><strong>Budget & Cost Planning:</strong> Collaborate with accounts team on annual AWS, GCP & Azure budgets. Prepare resource usage forecasts.</li>
+          <li><strong>Hiring:</strong> Screen & shortlist DevOps/Cloud Intern candidates. Conduct technical interviews; evaluate skills. Create interview questionnaires.</li>
+          <li><strong>Hiring Strategy Review:</strong> Review hiring process effectiveness; refine based on feedback.</li>
+          <li><strong>System Overhaul:</strong> Full IT systems review — identify improvement areas. Present proposals for new technologies & workflows to leadership.</li>
+        </ul>
+      </div>
     </div>
+
   </div>
 
   <!-- YEAR-WISE TIMELINE -->
@@ -937,10 +1419,6 @@
             <span class="month-text"><strong>CIP Project:</strong> Local server setup, Cloudflare tunnel, documentation. Azure cost troubleshooting for high-bill functions. Blob deletion logic for Anaxee Forms stage DB.</span>
           </div>
           <div class="month-item">
-            <span class="month-tag">Aug</span>
-            <span class="month-text"><strong>Drone/ML:</strong> Drone data processing — orthomosaics, tree-counting model runs, ODM error debugging. Azure billing ticket management. Label Studio annotation export scripts.</span>
-          </div>
-          <div class="month-item">
             <span class="month-tag">Sep–Dec</span>
             <span class="month-text"><strong>Uptime Monitoring:</strong> Daily monitoring of CRM, Client Portal, DR Search tool, followup tool, tasks-tool via Uptime Kuma checks.</span>
           </div>
@@ -967,11 +1445,11 @@
         <div class="month-list">
           <div class="month-item">
             <span class="month-tag">Jan</span>
-            <span class="month-text">Daily monitoring of all critical tools ongoing.</span>
+            <span class="month-text">Daily monitoring of all critical tools ongoing. <strong>GWS Alerts:</strong> Ongoing monitoring of suspicious login & phishing alerts in GWS Admin Console — reviewed with <strong>Shweta</strong> and actioned account-level responses.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Feb</span>
-            <span class="month-text"><strong>App Debugging:</strong> Fixed Partner App crashes and runner accuracy issues. Uploaded Airtable images to Azure; updated Airtable links.</span>
+            <span class="month-text"><strong>App Debugging:</strong> Fixed Partner App crashes and runner accuracy issues. Uploaded Airtable images to Azure; updated Airtable links. <strong>Team:</strong> Coordinated with <strong>Shweta</strong> on backend access management — reviewed user roles, revoked stale permissions, updated CRM & cloud access. <strong>Vikas Sir:</strong> Handled WordPress queries — plugin conflicts, theme customisation on anaxee.com. Reviewed Google Search Console coverage errors and resolved indexing issues.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Mar</span>
@@ -979,31 +1457,31 @@
           </div>
           <div class="month-item">
             <span class="month-tag">Apr</span>
-            <span class="month-text"><strong>Server/Forms:</strong> Updated & monitored Anaxee Forms server. Fixed KML editor bugs. <strong>Incident:</strong> Troubleshot CRM email failure caused by revoked App password (Orcheck account).</span>
+            <span class="month-text"><strong>Server/Forms:</strong> Updated & monitored Anaxee Forms server. Fixed KML editor bugs. <strong>Incident:</strong> Troubleshot CRM email failure caused by revoked App password (Orcheck account) — root cause identified & resolved. <strong>Vikas Sir:</strong> WordPress queries — page builder issues, DNS record updates for subdomain configurations, Google Analytics 4 property setup & event tracking review. <strong>Ayush:</strong> Discussed product backend API access levels and service account permissions.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">May–Jun</span>
-            <span class="month-text">Routine tasks. Security handover — coordinated password transfer (orcheck@anaxeetech.com) to Ayush.</span>
+            <span class="month-text">Routine tasks. <strong>Security handover:</strong> Coordinated password transfer (orcheck@anaxeetech.com) to <strong>Ayush</strong> — documented handover process with <strong>Shweta</strong>. <strong>GWS Spam:</strong> Investigated outbound spam relay issue — tightened SPF/DKIM/DMARC, blocked flagged IPs, reported to <strong>Vikas Sir</strong>. <strong>Vikas Sir:</strong> WordPress content & SEO queries — meta descriptions, heading structure, internal linking on anaxee.com pages. DNS changes for new subdomains. Search Console sitemap resubmission after site restructure.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Jul</span>
-            <span class="month-text"><strong>GCP FinOps:</strong> Managed GWS storage & accounts. Kept GCP billing under <strong>$60/month</strong>. Azure monitoring & billing. VM tuning & database optimization. <strong>Web:</strong> Contributed to building WordPress pages & customising anaxee.com (site structure, content, UX).</span>
+            <span class="month-text"><strong>GCP FinOps:</strong> Managed GWS storage & accounts. Kept GCP billing under <strong>$60/month</strong>. Azure monitoring & billing. VM tuning & database optimization. <strong>Web:</strong> Contributed to building WordPress pages & customising anaxee.com (site structure, content, UX). <strong>Vikas Sir:</strong> Regular WordPress queries — page speed issues, Beaver Builder layout fixes, DNS record management (A, CNAME, TXT records), Google Analytics traffic review, Search Console performance reports & keyword visibility. SEO changes on anaxee.com pages. <strong>IT Team:</strong> IT asset declaration forms and legal compliance documentation.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Aug</span>
-            <span class="month-text"><strong>Infrastructure:</strong> Strengthened reliability, optimized cloud ops, improved collaboration tools. Streamlined GWS access & storage. WordPress updates, bug fixes, speed improvements, and backups for Anaxee.com.</span>
+            <span class="month-text"><strong>Infrastructure:</strong> Strengthened reliability, optimized cloud ops, improved collaboration tools. Streamlined GWS access & storage. WordPress updates, bug fixes, speed improvements, and backups for Anaxee.com. <strong>GWS → Zoho Migration (Phase 1):</strong> Initiated migration planning — audited GWS users, aliases & distribution groups with <strong>Shweta</strong>. Exported mailbox data, mapped accounts, began DNS prep (MX, SPF, DKIM for Zoho). <strong>Backend Access:</strong> Reviewed and updated service account roles and API access permissions with <strong>Ayush</strong> ahead of migration.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Sep</span>
-            <span class="month-text"><strong>Blog Launch:</strong> Set up & deployed <strong>blog.anaxee.com</strong> WordPress site on CapRover from scratch. Configured domain, SSL, and hosting. Resolved DB binlog issues on Anaxee.com & optimized performance. Reviewed GCP security configs. Upgraded <strong>Metabase</strong> to latest version. <strong>SEO:</strong> Implemented SEO optimization for blog.anaxee.com (meta tags, sitemap, speed tuning).</span>
+            <span class="month-text"><strong>Blog Launch:</strong> Set up & deployed <strong>blog.anaxee.com</strong> on CapRover. Configured domain, SSL, hosting. Resolved DB binlog issues on Anaxee.com. Reviewed GCP security configs. Upgraded <strong>Metabase</strong>. <strong>SEO:</strong> Implemented SEO optimization for blog.anaxee.com. <strong>GWS → Zoho Migration (Phase 2):</strong> Completed cutover with <strong>Shweta</strong> — switched MX records, migrated mailboxes, reconfigured aliases & groups. Verified mail flow, updated SPF/DKIM/DMARC, decommissioned GWS accounts. <strong>IT Team:</strong> Provided updated domain & email records for legal agreement templates.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Oct–Nov</span>
-            <span class="month-text">All routine tasks ongoing.</span>
+            <span class="month-text">All routine tasks ongoing. <strong>GWS Alerts (ongoing):</strong> Continued monitoring of spam, suspicious logins & phishing alerts — coordinated responses with <strong>Shweta</strong> (last month of collaboration, Nov 2025). <strong>Play Console:</strong> Reviewed Google Play policy compliance notifications — updated data safety section, privacy policy links, and app permissions as directed by <strong>Vikas Sir</strong>. <strong>Gargi:</strong> Assisted with DUNS number verification and policy-related documentation for partner agreements.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Dec</span>
-            <span class="month-text"><strong>Security:</strong> Received alert — Privilege Escalation vulnerability in <em>Advanced Custom Fields: Extended</em> WordPress plugin (100K sites affected). Tracked vendor patch (Dec 14, 2025) for version 0.9.2.2.</span>
+            <span class="month-text"><strong>Security:</strong> Received alert — Privilege Escalation vulnerability in <em>Advanced Custom Fields: Extended</em> WordPress plugin (100K sites affected). Tracked vendor patch (Dec 14, 2025) for version 0.9.2.2. <strong>IT Team:</strong> Post-Shweta transition — backend access management and GWS admin responsibilities fully handed over internally.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">SEO 🌐</span>
@@ -1014,10 +1492,14 @@
           <span class="tag cloud">GCP FinOps</span>
           <span class="tag cloud">Azure</span>
           <span class="tag security">Security</span>
+          <span class="tag security">GWS Alerts</span>
           <span class="tag web">WordPress</span>
           <span class="tag web">blog.anaxee.com</span>
           <span class="tag web">SEO</span>
+          <span class="tag web">Play Console</span>
           <span class="tag web">Lovable Sites</span>
+          <span class="tag it">Zoho Migration</span>
+          <span class="tag it">IT Team</span>
           <span class="tag infra">Metabase</span>
           <span class="tag infra">CapRover</span>
         </div>
@@ -1035,35 +1517,39 @@
         <div class="month-list">
           <div class="month-item">
             <span class="month-tag">Jan</span>
-            <span class="month-text"><strong>Security:</strong> Wordfence free-version firewall rule deployed against ACF: Extended vulnerability (Jan 10).</span>
+            <span class="month-text"><strong>Security:</strong> Wordfence free-version firewall rule deployed against ACF: Extended vulnerability (Jan 10). <strong>GWS Alerts:</strong> Ongoing monitoring of Google Workspace security alerts — suspicious login attempts & phishing messages flagged. Coordinated with <strong>Ayush</strong> on alert triage and account review.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Feb</span>
-            <span class="month-text"><strong>FinOps Win:</strong> Achieved cloud infrastructure bill below <strong>₹1,00,000/month</strong>. Began Azure MySQL Migration & Containerization Strategy. CapRover VMs, CRM, and ODK Server patching & performance tuning.</span>
+            <span class="month-text"><strong>FinOps Win:</strong> Achieved cloud infrastructure bill below <strong>₹1,00,000/month</strong>. Began Azure MySQL Migration & Containerization Strategy. CapRover VMs, CRM, and ODK Server patching & performance tuning. <strong>IT Team Tasks (Vikas Sir):</strong> Actioned IT support requests — hardware allocation, new employee system setup, software licensing. Coordinated asset handover with <strong>IT Team</strong> for new joiners.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Mar</span>
-            <span class="month-text"><strong>WordPress Security:</strong> Plugin/theme updates, vulnerability scanning, backups. Investigated & resolved contact form spam (legacy endpoint secured, CAPTCHA implemented). <strong>Admin:</strong> Updated DUNS & policy details on Google Play Console.</span>
+            <span class="month-text"><strong>WordPress Security:</strong> Plugin/theme updates, vulnerability scanning, backups. Investigated & resolved contact form spam (legacy endpoint secured, CAPTCHA implemented). <strong>Admin:</strong> Updated DUNS & policy details on Google Play Console — coordinated with <strong>Ayush</strong> on Play Console developer account compliance. <strong>Policy (Gargi):</strong> Coordinated DUNS verification and legal agreement documentation for vendor/partner onboarding. Updated Play Console developer account policy details as required.</span>
+          </div>
+          <div class="month-item">
+            <span class="month-tag">Mar–Apr</span>
+            <span class="month-text"><strong>GWS Spam & Alerts (Ongoing):</strong> Continuous monitoring of GWS Admin Console for spam relay abuse, suspicious login alerts, and phishing messages. Reviewed mail logs, tightened SPF/DKIM/DMARC policies, and blocked flagged sender IPs. Reported status to <strong>Vikas Sir</strong> and <strong>Ayush</strong> regularly.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Apr 11</span>
-            <span class="month-text"><strong>Hiring:</strong> Designed structured intern interview framework (Linux, DB, AWS, GCP, Gen AI, RAG, Vertex AI). AI-assisted process covering OLAP vs OLTP, Bigtable, Cloud Spanner.</span>
+            <span class="month-text"><strong>Hiring:</strong> Designed structured intern interview framework (Linux, DB, AWS, GCP, Gen AI, RAG, Vertex AI). AI-assisted process covering OLAP vs OLTP, Bigtable, Cloud Spanner. Coordinated interview scheduling with <strong>HR TEAM</strong> (HR).</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Apr 16</span>
-            <span class="month-text"><strong>Security Alert:</strong> Ninja Forms – File Upload critical vulnerability (50K sites, actively exploited). Urged update to v3.3.27.</span>
+            <span class="month-text"><strong>Security Alert:</strong> Ninja Forms – File Upload critical vulnerability (50K sites, actively exploited). Urged update to v3.3.27. <strong>Play Console Policy:</strong> Reviewed and responded to Google Play policy compliance notifications — updated app metadata, privacy policy links, and data safety declarations as required by <strong>Vikas Sir</strong>.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Apr 23</span>
-            <span class="month-text"><strong>Vulnerability Report:</strong> 139 vulnerabilities disclosed in WordPress plugins & themes (week of Apr 13–19, 2026). GWS Alerts — Suspicious Login (sales3@anaxee.com) & Phishing message (sales@anaxee.com) managed.</span>
+            <span class="month-text"><strong>Vulnerability Report:</strong> 139 vulnerabilities disclosed in WordPress plugins & themes (week of Apr 13–19, 2026). <strong>GWS Alerts:</strong> Suspicious Login (sales3@anaxee.com) & Phishing message (sales@anaxee.com) — investigated, accounts secured, reported to <strong>Vikas Sir</strong>.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Apr 25</span>
-            <span class="month-text"><strong>DB Fix:</strong> MySQL error — <em>Error writing file '/tmp/'</em> (Errcode: 28). Diagnosed disk space / tmp directory issue. Cleaned up and restored DB operations.</span>
+            <span class="month-text"><strong>DB Fix:</strong> MySQL error — <em>Error writing file '/tmp/'</em> (Errcode: 28). Diagnosed disk space / tmp directory issue. Cleaned up and restored DB operations. <strong>CRM Export:</strong> Resolved contact CSV export failure — same root cause (disk space). Reported resolution to <strong>Ayush</strong>.</span>
           </div>
           <div class="month-item">
             <span class="month-tag">Apr 27</span>
-            <span class="month-text"><strong>Cloud Incident INC-409959:</strong> Restored revoked GCP Billing Console access — confirmed intentional Principle of Least Privilege audit action. Coordinated with Brio Support & internal team. <strong>AI Certification:</strong> Enrolled in GAIL (Generative AI Leader) program — Cohort GAIL05-GETCERT/2026.04.27 (deadline: June 24, 2026).</span>
+            <span class="month-text"><strong>Cloud Incident INC-409959:</strong> Restored revoked GCP Billing Console access — confirmed intentional Principle of Least Privilege audit action. Coordinated with Brio Support & <strong>Ayush</strong> (internal). <strong>AI Certification:</strong> Enrolled in GAIL (Generative AI Leader) program — Cohort GAIL05-GETCERT/2026.04.27 (deadline: June 24, 2026). Informed <strong>Vikas Sir</strong> of enrollment.</span>
           </div>
         </div>
         <div class="tag-row">
@@ -1071,10 +1557,420 @@
           <span class="tag cloud">GCP</span>
           <span class="tag cloud">Azure Migration</span>
           <span class="tag security">SecOps</span>
+          <span class="tag security">GWS Alerts</span>
           <span class="tag web">WordPress</span>
+          <span class="tag web">Play Console</span>
           <span class="tag ai">Gen AI / GAIL</span>
           <span class="tag it">Hiring</span>
+          <span class="tag it">IT Team</span>
         </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- AI & IMPLEMENTATION 2025–2026 -->
+  <div class="section-title">AI Tools & Implementation (2025–2026)</div>
+  <div class="ai-grid">
+
+    <div class="ai-card">
+      <div class="ai-card-icon">🤖</div>
+      <div class="ai-card-title">AI-Assisted Server Troubleshooting</div>
+      <div class="ai-card-sub">Claude · ChatGPT · 2025–2026</div>
+      <div class="ai-card-desc">Used Claude and ChatGPT to diagnose and resolve server incidents — including MySQL /tmp disk-full errors (Errcode: 28), CRM email failures from revoked App passwords, database binlog overflow on Anaxee.com, and CapRover container starvation issues. AI helped narrow root causes faster and draft resolution steps.</div>
+      <div class="ai-card-tags">
+        <span class="ai-tag">Claude</span>
+        <span class="ai-tag">ChatGPT</span>
+        <span class="ai-tag">MySQL</span>
+        <span class="ai-tag">CapRover</span>
+        <span class="ai-tag">Incident Response</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-icon">📈</div>
+      <div class="ai-card-title">SEO & JSON-LD Structured Data</div>
+      <div class="ai-card-sub">ChatGPT · Claude · 2025</div>
+      <div class="ai-card-desc">Leveraged AI tools to implement comprehensive SEO optimization across multiple sites — blog.anaxee.com, students.anaxee.com, Govind Sir's portfolio, Arti Ma'am's portfolio, MPcold chain, Satish Cold Storage, and Aaruni Foundation. Work included generating JSON-LD structured data schemas (Organization, WebSite, BreadcrumbList), meta tags, Open Graph, sitemap configuration, and page speed improvements.</div>
+      <div class="ai-card-tags">
+        <span class="ai-tag">JSON-LD</span>
+        <span class="ai-tag">Structured Data</span>
+        <span class="ai-tag">SEO Audit</span>
+        <span class="ai-tag">Meta Tags</span>
+        <span class="ai-tag">Sitemap</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-icon">☁️</div>
+      <div class="ai-card-title">AI-Assisted Cloud Monitoring & FinOps</div>
+      <div class="ai-card-sub">ChatGPT · Gemini · 2025–2026</div>
+      <div class="ai-card-desc">Used AI to analyze GCP and Azure billing patterns, identify cost spikes, and draft optimization strategies. Helped interpret Azure Monitor alerts, GCP Security Command Centre findings, and Microsoft Sentinel logs. AI-assisted analysis contributed to reducing cloud infrastructure bill below ₹1,00,000/month in Feb 2026.</div>
+      <div class="ai-card-tags">
+        <span class="ai-tag">GCP FinOps</span>
+        <span class="ai-tag">Azure Monitor</span>
+        <span class="ai-tag">Cost Optimization</span>
+        <span class="ai-tag">Gemini</span>
+        <span class="ai-tag">ChatGPT</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-icon">🔍</div>
+      <div class="ai-card-title">Uptime & Availability Monitoring with AI</div>
+      <div class="ai-card-sub">ChatGPT · Claude · Uptime Kuma · 2024–2026</div>
+      <div class="ai-card-desc">Used AI to interpret Uptime Kuma alerts and triage downtime incidents for CRM, Client Portal, DR Search Tool, Followup Tool, and Tasks Portal. AI helped draft runbooks for common failure patterns and suggested proactive checks — reducing mean time to resolution for recurring outages.</div>
+      <div class="ai-card-tags">
+        <span class="ai-tag">Uptime Kuma</span>
+        <span class="ai-tag">Claude</span>
+        <span class="ai-tag">ChatGPT</span>
+        <span class="ai-tag">Runbooks</span>
+        <span class="ai-tag">MTTR</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-icon">🛡️</div>
+      <div class="ai-card-title">WordPress Security with AI Assistance</div>
+      <div class="ai-card-sub">ChatGPT · Claude · 2025–2026</div>
+      <div class="ai-card-desc">Used AI to research and respond to critical WordPress plugin vulnerabilities — ACF Extended Privilege Escalation (Jan 2026), Ninja Forms File Upload exploit (Apr 2026), and 139-vulnerability weekly reports. AI helped assess impact, draft patch notes, and implement CAPTCHA + endpoint hardening for spam contact form abuse.</div>
+      <div class="ai-card-tags">
+        <span class="ai-tag">Wordfence</span>
+        <span class="ai-tag">CVE Research</span>
+        <span class="ai-tag">CAPTCHA</span>
+        <span class="ai-tag">Claude</span>
+        <span class="ai-tag">ChatGPT</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-icon">🎓</div>
+      <div class="ai-card-title">GAIL Certification & AI Interview Design</div>
+      <div class="ai-card-sub">Generative AI Leader · Google · Apr 2026</div>
+      <div class="ai-card-desc">Enrolled in the Generative AI Leader (GAIL) program — Cohort GAIL05-GETCERT/2026.04.27 (deadline: June 24, 2026). Also used AI to design a structured intern interview framework covering Gen AI, RAG, Vertex AI, Bigtable, Cloud Spanner, OLAP vs OLTP, and conversational evaluation strategies.</div>
+      <div class="ai-card-tags">
+        <span class="ai-tag">GAIL</span>
+        <span class="ai-tag">Vertex AI</span>
+        <span class="ai-tag">RAG</span>
+        <span class="ai-tag">Gen AI</span>
+        <span class="ai-tag">Google Skills</span>
+      </div>
+    </div>
+
+    <div class="ai-card">
+      <div class="ai-card-icon">🎸</div>
+      <div class="ai-card-title">Vibe Coding</div>
+      <div class="ai-card-sub">ChatGPT · Claude · 2025–2026</div>
+      <div class="ai-card-desc">Used AI-assisted "vibe coding" to write and customise code without deep manual development — including WordPress <code style="font-family:var(--mono);font-size:11px;background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px;">header.php</code> & <code style="font-family:var(--mono);font-size:11px;background:rgba(255,255,255,0.06);padding:1px 5px;border-radius:3px;">footer.php</code> customisations, creating new WordPress pages with custom layouts and content blocks, and writing Bash scripts for server automation — cron job setup, log rotation, disk cleanup, DB dump scripts, and scheduled backup tasks across CapRover & GCP VMs.</div>
+      <div class="ai-card-tags">
+        <span class="ai-tag">WordPress PHP</span>
+        <span class="ai-tag">header.php</span>
+        <span class="ai-tag">footer.php</span>
+        <span class="ai-tag">Bash Scripts</span>
+        <span class="ai-tag">Cron Jobs</span>
+        <span class="ai-tag">Server Automation</span>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- FINOPS & SECURITY OVER THE YEARS -->
+  <div class="section-title">FinOps & Security Over The Years</div>
+  <div class="finops-layout">
+
+    <!-- GCP Cost Table -->
+    <div class="finops-panel">
+      <div class="finops-panel-title gcp">☁️ GCP Billing — Monthly Cost (INR) · % Change YoY</div>
+      <div style="overflow-x:auto;">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Month</th>
+              <th>2019</th>
+              <th>2020</th>
+              <th>2021</th>
+              <th>2022</th>
+              <th>2023</th>
+              <th>2024</th>
+              <th>2025</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jan</td>
+              <td class="cost-empty">—</td>
+              <td class="cost-low">₹77K</td>
+              <td class="cost-high">₹172K</td>
+              <td class="cost-high">₹788K</td>
+              <td class="cost-mid">₹247K</td>
+              <td class="cost-mid">₹135K</td>
+              <td class="cost-vlow">₹9.4K</td>
+            </tr>
+            <tr>
+              <td>Feb</td>
+              <td class="cost-empty">—</td>
+              <td class="cost-low">₹110K</td>
+              <td class="cost-high">₹176K</td>
+              <td class="cost-high">₹678K</td>
+              <td class="cost-mid">₹237K</td>
+              <td class="cost-mid">₹226K</td>
+              <td class="cost-vlow">₹8.7K</td>
+            </tr>
+            <tr>
+              <td>Mar</td>
+              <td class="cost-empty">—</td>
+              <td class="cost-low">₹133K</td>
+              <td class="cost-high">₹195K</td>
+              <td class="cost-high">₹585K</td>
+              <td class="cost-mid">₹215K</td>
+              <td class="cost-mid">₹141K</td>
+              <td class="cost-vlow">₹9.6K</td>
+            </tr>
+            <tr>
+              <td>Apr</td>
+              <td class="cost-empty">—</td>
+              <td class="cost-low">₹131K</td>
+              <td class="cost-high">₹195K</td>
+              <td class="cost-mid">₹305K</td>
+              <td class="cost-mid">₹230K</td>
+              <td class="cost-mid">₹129K</td>
+              <td class="cost-vlow">₹9.3K</td>
+            </tr>
+            <tr>
+              <td>May</td>
+              <td class="cost-empty">—</td>
+              <td class="cost-low">₹104K</td>
+              <td class="cost-high">₹207K</td>
+              <td class="cost-mid">₹288K</td>
+              <td class="cost-mid">₹283K</td>
+              <td class="cost-mid">₹114K</td>
+              <td class="cost-vlow">₹9.1K</td>
+            </tr>
+            <tr>
+              <td>Jun</td>
+              <td class="cost-empty">—</td>
+              <td class="cost-low">₹102K</td>
+              <td class="cost-high">₹217K</td>
+              <td class="cost-mid">₹279K</td>
+              <td class="cost-mid">₹194K</td>
+              <td class="cost-mid">₹115K</td>
+              <td class="cost-vlow">₹7.5K</td>
+            </tr>
+            <tr>
+              <td>Jul</td>
+              <td class="cost-vlow">₹11.7K</td>
+              <td class="cost-low">₹107K</td>
+              <td class="cost-high">₹249K</td>
+              <td class="cost-high">₹298K</td>
+              <td class="cost-mid">₹211K</td>
+              <td class="cost-mid">₹104K</td>
+              <td class="cost-empty">—</td>
+            </tr>
+            <tr>
+              <td>Aug</td>
+              <td class="cost-vlow">₹15.4K</td>
+              <td class="cost-low">₹108K</td>
+              <td class="cost-high">₹322K</td>
+              <td class="cost-high">₹308K</td>
+              <td class="cost-mid">₹198K</td>
+              <td class="cost-low">₹93.7K</td>
+              <td class="cost-empty">—</td>
+            </tr>
+            <tr>
+              <td>Sep</td>
+              <td class="cost-vlow">₹53.5K</td>
+              <td class="cost-low">₹105K</td>
+              <td class="cost-high">₹533K</td>
+              <td class="cost-high">₹347K</td>
+              <td class="cost-mid">₹194K</td>
+              <td class="cost-low">₹87.4K</td>
+              <td class="cost-empty">—</td>
+            </tr>
+            <tr>
+              <td>Oct</td>
+              <td class="cost-vlow">₹72.2K</td>
+              <td class="cost-mid">₹145K</td>
+              <td class="cost-high">₹630K</td>
+              <td class="cost-high">₹381K</td>
+              <td class="cost-mid">₹207K</td>
+              <td class="cost-low">₹73K</td>
+              <td class="cost-empty">—</td>
+            </tr>
+            <tr>
+              <td>Nov</td>
+              <td class="cost-vlow">₹68.8K</td>
+              <td class="cost-mid">₹146K</td>
+              <td class="cost-high">₹494K</td>
+              <td class="cost-high">₹384K</td>
+              <td class="cost-high" title="Cost spike — Ransomware via Apache ActiveMQ CVE-2023-46604">₹211K ⚠️</td>
+              <td class="cost-low">₹71.2K</td>
+              <td class="cost-empty">—</td>
+            </tr>
+            <tr>
+              <td>Dec</td>
+              <td class="cost-vlow">₹76.7K</td>
+              <td class="cost-mid">₹151K</td>
+              <td class="cost-high">₹504K</td>
+              <td class="cost-vlow">₹39.5K</td>
+              <td class="cost-mid">₹146K</td>
+              <td class="cost-vlow">₹23.6K</td>
+              <td class="cost-empty">—</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:10px 14px; border-top:1px solid var(--border); font-family:var(--mono); font-size:10px; color:var(--muted); display:flex; gap:16px; flex-wrap:wrap;">
+        <span style="color:#f87171;">■ &gt;₹300K high</span>
+        <span style="color:#fb923c;">■ ₹100K–300K mid</span>
+        <span style="color:#4ade80;">■ ₹70K–100K low</span>
+        <span style="color:var(--accent); font-weight:700;">■ &lt;₹70K optimized</span>
+        <span style="margin-left:auto; color:var(--accent);">Peak: ₹788K (Jan 2021) → 2025 avg: ~₹9K ↓ ~99%</span>
+      </div>
+    </div>
+
+    <!-- Azure Cost Table -->
+    <div class="finops-panel">
+      <div class="finops-panel-title azure">🔷 Azure Billing — Pay-as-you-go · % Reduction</div>
+      <div style="overflow-x:auto;">
+        <table class="cost-table">
+          <thead>
+            <tr>
+              <th>Billing Period</th>
+              <th>USD ($)</th>
+              <th>INR (₹)</th>
+              <th>vs Peak</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Jun 7 – Jul 6, 2024</td>
+              <td class="cost-high">$4,008</td>
+              <td class="cost-high">₹333K</td>
+              <td class="cost-high">Peak</td>
+            </tr>
+            <tr>
+              <td>Jul 7 – Aug 6, 2024</td>
+              <td class="cost-mid">$3,083</td>
+              <td class="cost-mid">₹258K</td>
+              <td class="cost-mid">↓ 23%</td>
+            </tr>
+            <tr>
+              <td>Aug 7 – Sep 6, 2024</td>
+              <td class="cost-mid">$2,808</td>
+              <td class="cost-mid">₹234K</td>
+              <td class="cost-mid">↓ 30%</td>
+            </tr>
+            <tr>
+              <td>Sep 7 – Oct 6, 2024</td>
+              <td class="cost-mid">$2,420</td>
+              <td class="cost-mid">₹203K</td>
+              <td class="cost-low">↓ 40%</td>
+            </tr>
+            <tr>
+              <td>Oct 7 – Nov 6, 2024</td>
+              <td class="cost-mid">$2,213</td>
+              <td class="cost-mid">₹185K</td>
+              <td class="cost-low">↓ 45%</td>
+            </tr>
+            <tr>
+              <td>Nov 7 – Dec 6, 2024</td>
+              <td class="cost-low">$2,041</td>
+              <td class="cost-low">₹172K</td>
+              <td class="cost-low">↓ 49%</td>
+            </tr>
+            <tr>
+              <td>Dec 7 – Jan 6, 2025</td>
+              <td class="cost-low">$1,695</td>
+              <td class="cost-low">₹143K</td>
+              <td class="cost-vlow">↓ 58%</td>
+            </tr>
+            <tr>
+              <td>Jan 7 – Feb 6, 2025</td>
+              <td class="cost-low">$1,515</td>
+              <td class="cost-low">₹130K</td>
+              <td class="cost-vlow">↓ 62%</td>
+            </tr>
+            <tr>
+              <td>Feb 7 – Mar 6, 2025</td>
+              <td class="cost-vlow">$1,396</td>
+              <td class="cost-vlow">₹121K</td>
+              <td class="cost-vlow">↓ 65%</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+      <div style="padding:10px 14px; border-top:1px solid var(--border); font-family:var(--mono); font-size:10px; color:var(--muted); display:flex; gap:16px; flex-wrap:wrap;">
+        <span style="color:#f87171;">■ Peak</span>
+        <span style="color:#fb923c;">■ Reducing</span>
+        <span style="color:#4ade80;">■ Significant drop</span>
+        <span style="color:var(--accent); font-weight:700;">■ Optimized</span>
+        <span style="margin-left:auto; color:var(--accent);">$4,008 → $1,396 · ↓ 65% in 9 months</span>
+      </div>
+    </div>
+
+    <!-- Security Timeline -->
+    <div class="sec-timeline">
+      <div style="font-family:var(--mono); font-size:11px; font-weight:600; letter-spacing:0.14em; text-transform:uppercase; padding:12px 16px; border-bottom:1px solid var(--border); color:#f87171; background:rgba(248,113,113,0.04);">🛡️ Security Events & Hardening — 2019 to 2026</div>
+
+      <div class="sec-row">
+        <div class="sec-year">2019–20</div>
+        <div class="sec-type infra">Infrastructure</div>
+        <div class="sec-detail">Established daily <strong>AWS & GCP firewall log monitoring</strong>. Began SSL certificate management for all web servers. Set up user auth & access review processes for CRM and G Suite.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2021</div>
+        <div class="sec-type infra">Cloud Security</div>
+        <div class="sec-detail">Expanded to <strong>Azure Microsoft Sentinel</strong> monitoring. Added GCP Security Command Centre to daily checks. Introduced intrusion detection & prevention on cloud network/firewall layer.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2022</div>
+        <div class="sec-type audit">Audit</div>
+        <div class="sec-detail">Monthly <strong>security audits</strong> formalised — WordPress checks, SSL renewals, cloud compliance reviews. Periodic vulnerability assessments and penetration testing introduced. User permission reviews across CRM, G Suite & cloud.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2023 Aug</div>
+        <div class="sec-type infra">Hardening</div>
+        <div class="sec-detail"><strong>Containerization security:</strong> Migrated workloads from CyberPanel to CapRover Docker containers. Reviewed and tightened container & volume access controls. Implemented Uptime Kuma for real-time availability monitoring.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2023 Nov</div>
+        <div class="sec-type vuln">Ransomware</div>
+        <div class="sec-detail"><strong>Ransomware attack on DRAPP server</strong> — attackers exploited the <strong>Apache ActiveMQ RCE vulnerability (CVE-2023-46604)</strong>, a critical zero-day actively used to deploy ransomware. The exploit caused a sudden and significant <strong>cost spike on the cloud bill</strong> due to unauthorized compute usage. Immediate response: isolated the affected VM, patched ActiveMQ, reviewed all exposed ports & firewall rules, rotated credentials, and audited all GCP & Azure resources for lateral movement.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2025 Mar</div>
+        <div class="sec-type incident">Incident</div>
+        <div class="sec-detail"><strong>CRM email failure</strong> — root cause: revoked App password on orcheck@anaxeetech.com. Resolved & coordinated secure password handover to Ayush. Customer portal links secured.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2025 Sep</div>
+        <div class="sec-type audit">Hardening</div>
+        <div class="sec-detail">Reviewed <strong>GCP security configurations</strong>. Resolved DB binlog disk-full issue on Anaxee.com. Deployed blog.anaxee.com with SSL, domain config & security hardening from scratch.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2025 Dec</div>
+        <div class="sec-type vuln">Vulnerability</div>
+        <div class="sec-detail"><strong>ACF: Extended plugin</strong> — Privilege Escalation vulnerability (100K sites affected). Tracked vendor patch v0.9.2.2 (Dec 14, 2025). Wordfence firewall rule deployed Jan 10, 2026.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2026 Mar</div>
+        <div class="sec-type incident">Incident</div>
+        <div class="sec-detail"><strong>Contact form spam</strong> — legacy pre-2023 Blacksoft endpoint exploited by bots. Disabled obsolete endpoint, implemented <strong>CAPTCHA</strong> protection. Root cause report drafted.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2026 Apr 16</div>
+        <div class="sec-type vuln">Vulnerability</div>
+        <div class="sec-detail"><strong>Ninja Forms – File Upload</strong> critical CVE (50K sites, actively exploited). Urged immediate update to v3.3.27. Patched across all managed WordPress instances.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2026 Apr 23</div>
+        <div class="sec-type vuln">Vulnerability</div>
+        <div class="sec-detail"><strong>139 WordPress plugin/theme vulnerabilities</strong> disclosed (week of Apr 13–19). GWS Alerts — Suspicious Login (sales3@anaxee.com) & Phishing message (sales@anaxee.com) investigated & managed.</div>
+      </div>
+      <div class="sec-row">
+        <div class="sec-year">2026 Apr 27</div>
+        <div class="sec-type policy">Compliance</div>
+        <div class="sec-detail"><strong>INC-409959</strong> — GCP Billing Console access revoked during internal audit (Principle of Least Privilege). Coordinated with Brio Support to restore access. Role adjusted: Billing Admin → Billing User + Viewer.</div>
       </div>
     </div>
 
@@ -1110,7 +2006,7 @@
       <span class="status-badge">✓ Completed</span>
     </div>
     <div class="log-card">
-      <div class="log-date">25 Apr 2026</div>
+      <div class="log-date">13 Apr 2026</div>
       <h4>MySQL Error Troubleshooting</h4>
       <ul>
         <li>Error: writing file '/tmp/...' (Errcode: 28)</li>
@@ -1118,6 +2014,18 @@
         <li>Identified disk space / tmp directory constraints</li>
         <li>Performed cleanup & corrective action</li>
         <li>Restored database operations; prevented service disruption</li>
+      </ul>
+      <span class="status-badge">✓ Resolved</span>
+    </div>
+    <div class="log-card">
+      <div class="log-date">25 Apr 2026</div>
+      <h4>CRM — Export Contacts CSV Issue</h4>
+      <ul>
+        <li>Reported issue: exporting contacts as CSV from SuiteCRM failing</li>
+        <li>Investigated CRM export module & server-side file generation</li>
+        <li>Traced root cause to disk space exhaustion in /tmp directory</li>
+        <li>Cleared temp files; freed up disk space on CRM server</li>
+        <li>Verified CSV export working correctly post-fix</li>
       </ul>
       <span class="status-badge">✓ Resolved</span>
     </div>
@@ -1305,6 +2213,11 @@
           <div class="hcard-url">topsectornews.com</div>
           <div class="hcard-server">CapRover</div>
         </a>
+        <a href="https://blog.anaxee.com" target="_blank" class="hcard">
+          <div class="hcard-name">Anaxee Blog</div>
+          <div class="hcard-url">blog.anaxee.com</div>
+          <div class="hcard-server">CapRover · Azure</div>
+        </a>
       </div>
     </div>
 
@@ -1424,7 +2337,7 @@
   </div>
 
   <!-- SCOPE OF WORK 2020 -->
-  <div class="section-title">Scope of Work — 2020 (Official Record)</div>
+  <div class="section-title">Scope of Work 2019 — 2020 (Official Record)</div>
   <div class="scope-table-wrap">
     <table class="scope-table">
       <thead>
@@ -1672,6 +2585,79 @@
       <div class="q-title">Backup & DR Strategy — DRAPP on Azure</div>
       <div class="q-desc">Design and implement a comprehensive Backup and Disaster Recovery strategy for the DRAPP application running on Azure.</div>
     </div>
+  </div>
+
+  <!-- HIRING & MENTORSHIP -->
+  <div class="section-title">Hiring, Mentorship & Intern Training</div>
+  <div class="hiring-layout">
+
+    <div class="hiring-top">
+
+      <div class="hiring-panel">
+        <div class="hiring-panel-title">📋 Interview & Hiring Process</div>
+        <ul>
+          <li>Designed structured technical interview frameworks for DevOps & Cloud Intern roles — covering Linux basics, networking, ports, bash scripting, and OS fundamentals</li>
+          <li>Evaluated candidates on AWS (EC2, RDS, VPC, S3), GCP equivalents (Compute Engine, Cloud SQL, Cloud Run), and Azure basics</li>
+          <li>Assessed security knowledge — firewalls, IAM, Principle of Least Privilege, SSL/TLS, vulnerability management</li>
+          <li>Advanced rounds: Gen AI, RAG, Vertex AI, Bigtable, Cloud Spanner, OLAP vs OLTP edge cases</li>
+          <li>Created interview questionnaires and defined conversational candidate evaluation strategies (AI-assisted, Apr 2026)</li>
+          <li>Coordinated scheduling with HR Team and reported shortlists to management</li>
+          <li>Participated in multiple Cloud & DevOps engineer interviews (Jul 2024)</li>
+          <li>Reviewed hiring process effectiveness yearly — refined based on feedback and team needs</li>
+        </ul>
+      </div>
+
+      <div class="hiring-panel">
+        <div class="hiring-panel-title">🎓 Intern Training & Knowledge Transfer</div>
+        <ul>
+          <li><strong>Server Management:</strong> Trained interns on CapRover, Linux server administration, SSH, cron jobs, log monitoring, and disk management</li>
+          <li><strong>Cloud Platforms:</strong> Hands-on walkthroughs of GCP Console, Azure Portal — VM setup, Cloud SQL, storage buckets, billing dashboards</li>
+          <li><strong>Security Practices:</strong> Taught firewall rules, IAM roles, SSL certificate management, WordPress vulnerability scanning, and GWS security alerts</li>
+          <li><strong>IT Operations:</strong> Onboarded interns to CRM (SuiteCRM), ODK, Uptime Kuma monitoring, and internal ticketing workflows</li>
+          <li><strong>New Tools & Implementation:</strong> Introduced interns to Metabase analytics, CapRover deployments, Docker basics, and CI/CD concepts via Jenkins</li>
+          <li><strong>Bash & Automation:</strong> Guided scripting for cron jobs, DB dump automation, log rotation, and server health checks</li>
+          <li>Organised knowledge-sharing sessions on IT best practices, cloud cost management (FinOps), and security protocols</li>
+          <li>Updated training materials for Effort Nxt, Spoors, and cloud tooling as platforms evolved</li>
+        </ul>
+      </div>
+
+    </div>
+
+    <!-- Successful Interns -->
+    <div class="interns-row">
+      <div class="interns-row-title">✅ Successful Interns (2019–2026)</div>
+      <div class="interns-grid">
+        <div class="intern-chip">
+          <div class="intern-name">Ayush Shinde</div>
+          <div class="intern-role">Cloud & DevOps · Full-time</div>
+        </div>
+        <div class="intern-chip">
+          <div class="intern-name">Shruti Farkya</div>
+          <div class="intern-role">Cloud Support Engineer</div>
+        </div>
+        <div class="intern-chip">
+          <div class="intern-name">Ankit Jangid</div>
+          <div class="intern-role">DevOps & Infrastructure</div>
+        </div>
+        <div class="intern-chip">
+          <div class="intern-name">Vishwas Bellani</div>
+          <div class="intern-role">Cloud & Server Management</div>
+        </div>
+        <div class="intern-chip">
+          <div class="intern-name">Saksham Jain</div>
+          <div class="intern-role">Linux Administrator</div>
+        </div>
+        <div class="intern-chip">
+          <div class="intern-name">Ritika Jain</div>
+          <div class="intern-role">Platform Engineer</div>
+        </div>
+        <div class="intern-chip">
+          <div class="intern-name">Avish Jain</div>
+          <div class="intern-role">Software Engineer</div>
+        </div>
+      </div>
+    </div>
+
   </div>
 
   <!-- SKILLS SUMMARY -->
