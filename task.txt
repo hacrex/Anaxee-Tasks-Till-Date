@@ -1,0 +1,134 @@
+Analyze all my emails from January 2019 to the present. Identify and extract all work-related activities, responsibilities, and projects, especially those related to cloud computing, FinOps, Security related, Search Console, Google Analytics, GWS, IT management, and collaboration. From this analysis, create a comprehensive and structured task list that includes:
+
+Key projects I worked on (with timelines where possible)
+
+Recurring responsibilities and duties
+
+Tools, platforms, and technologies I used (e.g., cloud services, collaboration tools, IT systems)
+
+Any leadership, coordination, or cross-team collaboration activities
+
+Problem-solving, troubleshooting, or incident management tasks
+
+Achievements or outcomes inferred from the emails
+
+Organize the output into clear sections:
+
+Year-wise breakdown (2019–present)
+
+Categorized task lists (Cloud, IT Management, Collaboration, Others)
+
+Summary of skills demonstrated
+
+Optional: Suggestions for resume bullet points based on the extracted work
+
+Ensure the output is concise, well-structured, and avoids duplication while capturing meaningful insights.
+Gemini response
+Based on the emails available, which cover only the period of April 2026, the following is a structured breakdown of your recent work-related activities. I cannot provide a breakdown for 2019-2025 as no emails from those years were found in the search results.
+Year-wise Breakdown (2026)
+Category	Key Activities (April 2026)
+Key Projects	Generative AI Leader (GAIL) Certification Program: Enrolled in and actively participating in the second stage of the program. Requires completion of 5 Generative AI Leader path courses on Google Skills by June 24, 2026, and passing the exam by July 15, 2026.123
+Google Cloud Billing Access Restoration (INC-409959): Coordinated with an external vendor (Brio Support) and internal team (Ayush) to troubleshoot and restore revoked access to the Google Cloud billing console for a user.45
+Recurring Responsibilities	Cloud/FinOps Monitoring: Monitoring Google Cloud Billing Budget Alerts (e.g., 50% reached).6
+IT & Security Monitoring: Reviewing and receiving Google Workspace Alerts for Suspicious Login and Phishing messages detected post-delivery.78
+System Maintenance: Tracking notifications for scheduled maintenance on critical infrastructure, such as Azure Database for MySQL Flexible Server.9
+IT Administration: Managing IT Asset allocation and guidelines for new employees.10
+GWS/Collaboration Admin: Monitoring Google Workspace updates, new AI features (Gemini in Docs/Sheets/Drive/Gmail, Workspace Intelligence), and hardware/migration tools (Data Import, Connect Room for Meet).111213
+Categorized Task ListsCloud (GCP, Azure, FinOps)
+Key Projects & Outcomes:
+Coordinated with third-party support (Brio) to restore a colleague's revoked access to the Google Cloud billing console after an access issue (INC-409959).45
+Confirmed restoration of access and secured details on the root cause: an internal audit adjusted the role from Billing Admin to less privileged roles (Billing User and Viewer).5
+Recurring Responsibilities & Duties:
+Monitoring cloud financial controls, specifically tracking when the Google Cloud Billing Budget for "ANAXEE DIGITAL RUNNERS (Maps) - Brio" reached 50%.6
+Receiving and tracking scheduled maintenance notifications for Azure Database for MySQL Flexible Server.9
+Tools, Platforms, and Technologies Used:
+Google Cloud Billing Console465
+Microsoft Azure (Azure Database for MySQL Flexible Server)9
+IT Management
+Problem-Solving & Incident Management Tasks:
+Managed security alerts, including a "Suspicious login" alert for sales3@anaxee.com and a "Phishing message detected post-delivery" alert.78
+Verified that security changes, resulting from an internal audit, adhered to the principle of least privilege, leading to the removal of the Billing Admin role.5
+Recurring Responsibilities & Duties:
+Handling internal IT asset management processes, including communication of asset usage and guidelines for taking assets outside the office.10
+Tools, Platforms, and Technologies Used:
+Google Workspace Alerts78
+IT Asset Declaration Forms10
+Collaboration (GWS, Slack)
+Coordination & Cross-team Activities:
+Engaged in continuous learning by reviewing new Google Workspace feature rollouts, relevant to IT management and user collaboration.111213
+Administered and monitored the Slack workspace, receiving weekly updates on user activity, membership status (e.g., Shubham Bandiya becoming inactive), and owner/admin lists.14
+Coordinated with the internal team (Ayush) on a request for working from home.15
+Tools, Platforms, and Technologies Used:
+Google Workspace (Docs, Sheets, Drive, Gmail Search, Meet hardware)111213
+Slack14
+Others (Professional Development)
+Key Projects:
+Actively engaged in the Generative AI Leader (GAIL) certification program.12
+Tools, Platforms, and Technologies Used:
+Google Skills platform2
+Google Docs/Sheets/Drive (for resources and forms)1316
+Summary of Skills Demonstrated
+Skill Category	Demonstrated Capabilities
+Cloud & IT Operations	Incident management and resolution for critical systems (GCP billing console), cloud cost monitoring (FinOps/Budget Alerts), and managing scheduled maintenance tracking across multi-cloud environments (Azure).4569
+Security & Compliance	Incident response for phishing and suspicious login alerts, verifying security policy enforcement (Principle of Least Privilege), and managing IT asset control and guidelines.78510
+Professional Development	Proactive learning and certification pursuit in next-generation technologies (Generative AI Leader certification), including completion of required courses.123
+Coordination & Collaboration	Effective coordination with internal IT teams and external third-party vendors (Brio) to resolve incidents.45
+GWS Administration	Staying current with and potentially managing controls for advanced Google Workspace features, including Gemini AI capabilities and corporate collaboration hardware.111213
+Suggestions for Resume Bullet Points
+Managed critical Cloud Incident Response: Successfully coordinated with third-party support and internal stakeholders to troubleshoot and restore revoked user access to the Google Cloud Billing Console (INC-409959).45
+Ensured Security and Compliance: Reviewed and validated adherence to internal security audits, confirming the implementation of the Principle of Least Privilege by adjusting a critical Billing Admin role to Billing User and Viewer.5
+Monitored Cloud Financial and Operational Health: Proactively tracked FinOps alerts (e.g., 50% budget threshold reached on GCP) and monitored scheduled maintenance for multi-cloud infrastructure (Azure Database for MySQL Flexible Server).96
+Advanced Technical Proficiency: Engaged in a formal professional development track by enrolling in the Generative AI Leader certification program, focusing on advanced AI and cloud technologies.12
+IT Service and Security Management: Administered and responded to Google Workspace security alerts (suspicious logins, phishing) and managed IT asset allocation processes and compliance for new hires.1078
+Check this Year and last year tasks
+Gemini response
+The following is a comprehensive and structured analysis of your work activities, responsibilities, and projects from 2019 to the present, based on the provided email, chat, and document records.
+Year-wise Breakdown (2019–Present)
+Year/Period	Key Projects, Activities, and Focus Areas
+2019	Cloud Migration/Setup: Initiated Cloud Operations, including AWS Monitoring (snapshots, backups, RDS instance maintenance, CRM server log management, and cost alerts). Data Management: Performed manual data tasks, such as importing customer cases into the CRM. GCP Operations: Started GCP Monitoring (function logs, backups, and Cloud SQL configurations for Anaxee.com hosted on Compute Engine).1
+2020–2021	GCP Operations: Continued GCP Monitoring (Compute Engine, Cloud SQL). Multi-Cloud Expansion: Expanded cloud responsibilities beyond AWS and GCP to include Azure Monitoring (system health, SQL Instance, slow query logs, virtual machine metrics, Azure Functions). Application Management: Maintained CapRover server, NetData Monitoring, and containerized WordPress websites.1
+2022–2024	Strategic IT & Security: Focused on routine security practices, infrastructure upgrades, and strategic planning. This period includes regular Monthly Security Audits (WordPress, SSL renewals, cloud compliance) and Yearly Budget Planning for AWS, GCP, and Azure. Hiring & Leadership: Assisted in hiring for DevOps and Cloud Intern positions (screening, interviewing, creating questionnaires). Conducted a full review of IT systems for strategic planning.1
+2025	IT Incident/Password Management (April-May): Troubleshot and resolved an issue with CRM emails not arriving due to a manually-revoked App password for the "Orcheck" account. Security Handover: Coordinated with Shweta Maheshwari regarding the handover of critical passwords (e.g., orcheck@anaxeetech.com App password) to Ayush.23456
+2026 (April)	Generative AI Certification: Enrolled in Generative AI Leader (GAIL) Certification Program (Cohort ID: GAIL05-GETCERT/2026.04.27). Must complete 5 Generative AI path courses by June 24, 2026. Cloud Security Incident Management (INC-409959): Coordinated with Brio Cloud Delivery and Support Team to restore revoked Google Cloud Billing Console access. Identified revocation reason as an internal audit to enforce the Principle of Least Privilege. Security & Compliance: Managed Google Workspace Alerts for Suspicious Login and Phishing messages. Tracked Azure Database for MySQL Scheduled Maintenance.7891011121314
+Categorized Task ListsCloud (AWS, GCP, Azure, FinOps)
+Category	Key Activities, Responsibilities, and Projects
+Key Projects	GCP Billing Access Restoration (INC-409959): Coordinated incident resolution to restore Google Cloud billing console access that was removed during an internal audit. Cloud Migration/Deployment: Managed migration of Anaxee.com to GCP Compute Engine (2019-2021) and maintained DRAPP Virtual Machines.10111
+Recurring Responsibilities	Monitoring: Daily monitoring of GCP (Function logs, backups, Cloud SQL), Azure (Azure Monitor, SQL Instance, slow query logs, VM metrics), and historical AWS resources (snapshots, backups, RDS). Security: Manage Firewall logs on GCP & Azure and monitor Cloud Network/Firewall using GCP Security Command Centre and Azure Microsoft Sentinel. FinOps/Cost Management: Weekly analysis of cloud usage patterns across GCP and Azure to identify and implement cost-saving optimizations (e.g., terminating unused resources). Daily and weekly generation of usage/billing reports for GWS, GCP, and Azure.1
+Tools/Platforms	AWS, GCP (Compute Engine, Cloud SQL, Cloud DNS, Billing Console, Security Command Centre), Azure (Azure Monitor, Azure SQL, Microsoft Sentinel, MySQL Flexible Server). FinOps Tools: AWS Cost Explorer, Azure Cost Management, Google Cloud Cost Management (as researched for interviews/best practices). Containerization: CapRover, NetData Monitoring.101511416
+IT Management
+Category	Key Activities, Responsibilities, and Projects
+Recurring Responsibilities	User and Access Management: Maintain and update user permissions for CRM, G Suite, Dropbox, and Spoors. Assign IDs to new users and disable access for resigned employees. Asset Management: Administer IT Asset allocation and communicate usage guidelines (e.g., prior manager approval for taking assets outside the office). Documentation: Review developer documentation and maintain detailed logs (e.g., employee calling log sheets).117
+Problem-Solving/Troubleshooting	Daily Support: Diagnose and resolve technical issues on user systems (laptops, desktops, network equipment). CRM/Email Incidents: Troubleshot and fixed a CRM email issue caused by a revoked App password for the Orcheck account in 2025. Field Operations: Monitor and resolve Spoors tickets, escalate issues, and address field executive queries related to Effort Plus login and form submissions.123
+Tools/Platforms	G Suite/Google Workspace, Dropbox, CRM, Spoors, ODK.1
+Security and Incident Response
+Category	Key Activities, Responsibilities, and Projects
+Problem-Solving/Incident Management	Cloud Security: Investigated and confirmed that the removal of the Billing Admin role (INC-409959) was an intentional action following an internal audit to adhere to the Principle of Least Privilege. GWS Security: Responded to and managed Google Workspace Alerts for a Suspicious Login for sales3@anaxee.com and a Phishing message detected post-delivery for sales@anaxee.com.101312
+Recurring Responsibilities	Vulnerability Management: Routinely review and apply updates/patches for servers (Metabase, WordPress). Conduct routine checks for vulnerabilities, including SSL certificate management and WordPress security best practices. Weekly review of WordPress Security Vulnerability Reports (e.g., 139 vulnerabilities reported for the week of April 13-19, 2026). Security Audits: Conduct monthly comprehensive security audits and review/update user permissions across G Suite and cloud resources.118
+Tools/Platforms	Google Workspace Alerts, Wordfence Intelligence, Google Cloud Platform’s Security Command Centre, Azure’s Microsoft Sentinel.1213181
+Collaboration and Leadership
+Category	Key Activities, Responsibilities, and Projects
+Leadership/Coordination	Vendor & Partner Management: Coordinate weekly and monthly discussions with Azure and GCP support teams to address technical concerns and long-term strategies. Internal Coordination: Collaborated with the internal IT Team on troubleshooting and project-specific needs. Coordinated with the accounts team for monthly billing reconciliation and budgeting. Hiring & Training: Participated in technical interviews, created questionnaires, and assisted in screening candidates for DevOps and Cloud Intern roles. Organized knowledge-sharing sessions for the team.1
+Tools/Platforms	Slack (Admin: Ashvit), Google Workspace (GWS, G Suite, Meet, Chat, Docs, Sheets, Drive), Brio GWS/Azure Support.1920121
+Collaboration Activities	GWS Rollout Monitoring: Actively reviewed updates on new Google Workspace AI features, including Gemini capabilities in Docs, Sheets, Drive, and Gmail Search, as well as new admin controls for Workspace Intelligence and the Data Import migration tool. Workspace Admin: Monitored weekly Slack workspace activity and administered owners/admins (Owner: Ayush; Admin: Ashvit). Internal Requests: Managed requests like the one from Ayush Shinde for working from home.20211922
+Achievements or Outcomes Inferred from Emails
+Achievement/Outcome	Details
+High-Level Cloud & IT Management	Experienced in maintaining domains, managing Google Workspace, and providing access to internal tools for seven years at a startup. Successfully managed cloud services across AWS, GCP, and Azure.1
+Security Compliance Enforcement	Ensured cloud access controls adhered to the Principle of Least Privilege by confirming the proper role reduction following an internal audit.10
+Incident Resolution	Successfully restored user access to the Google Cloud Billing Console (INC-409959) by coordinating across internal and external teams.10
+Professional Development	Actively pursuing the Generative AI Leader (GAIL) Certification to advance skills in AI and cloud technology.89
+Software Development	Worked on software development projects, including building an Android app from scratch with the Tech Team.1
+Summary of Skills Demonstrated
+Skill	Description
+Multi-Cloud Administration (AWS/GCP/Azure)	Expertise in monitoring, backup, resource optimization, and infrastructure management across multiple cloud platforms (e.g., Compute Engine, Cloud SQL, Azure SQL, CapRover).1
+Security & Governance (FinOps)	Applied the Principle of Least Privilege, managed WordPress vulnerabilities, implemented security best practices (SSL, firewalls, GWS Alerts). Included cloud cost management (FinOps) for budgeting and optimization.101812113
+IT & End-User Support	Daily system troubleshooting, user/access management (CRM, GWS, Spoors), IT asset administration, and managing internal and external support tickets (Brio support).171
+Generative AI / Cloud Learning	Proactively engaged in the Generative AI Leader certification program, demonstrating commitment to continuous learning and staying current with cutting-edge technologies.89
+Team Coordination & Mentorship	Led technical discussions with vendor executives (Azure/GCP), coordinated project work, assisted in technical hiring, and provided employee training/knowledge sharing.1
+Software/App Management	Hands-on experience in server management (CapRover, Metabase, Spoors), managing development updates (Partner App on Play Console), and code/log observation.1
+Suggestions for Resume Bullet Points
+Cloud Governance and Incident Management: Led troubleshooting for critical access incidents (e.g., INC-409959) and enforced cloud security policies by verifying the removal of the Billing Admin role to uphold the Principle of Least Privilege.10
+Multi-Cloud & FinOps Optimization: Managed and optimized multi-cloud infrastructure across AWS, GCP, and Azure, including daily monitoring of function logs, backups, and security tools (Sentinel, Security Command Centre). Reduced costs by performing weekly usage analysis and optimizing resource allocation.1
+Security Operations (SecOps): Directed response to Google Workspace Alerts (Suspicious Login, Phishing) and proactively managed system vulnerability reports (WordPress/plugins) to secure web servers and user accounts.121318
+Technical Leadership & Development: Contributed to software development, including building an Android app from scratch with the tech team, and participated in technical interviews and strategy planning for DevOps/Cloud Intern roles.1
+Professional Advancement: Currently enrolled in the Generative AI Leader (GAIL) Certification Program, focused on rapidly acquiring and applying advanced AI/Cloud skills (completion deadline: June 24, 2026).789
+Show me emails with attachments
