@@ -947,6 +947,75 @@
     border: 1px solid rgba(167,139,250,0.2);
   }
 
+  /* ── Key Achievements ── */
+  .ach-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+    gap: 14px;
+    margin-bottom: 60px;
+  }
+
+  .ach-card {
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 20px;
+    display: flex;
+    flex-direction: column;
+    gap: 8px;
+    transition: border-color 0.2s, transform 0.2s;
+    border-top: 2px solid #fde047;
+  }
+
+  .ach-card:hover {
+    border-color: rgba(253,224,71,0.4);
+    transform: translateY(-2px);
+  }
+
+  .ach-card-icon { font-size: 22.5px; }
+
+  .ach-card-title {
+    font-size: 14.5px;
+    font-weight: 700;
+    color: #e2e8f0;
+    line-height: 1.3;
+  }
+
+  .ach-card-sub {
+    font-family: var(--mono);
+    font-size: 10.5px;
+    letter-spacing: 0.1em;
+    color: var(--muted);
+    text-transform: uppercase;
+  }
+
+  .ach-card-desc {
+    font-size: 12.5px;
+    color: #64748b;
+    line-height: 1.6;
+    flex: 1;
+  }
+
+  .ach-card-tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 5px;
+    margin-top: 6px;
+    padding-top: 10px;
+    border-top: 1px solid var(--border);
+  }
+
+  .ach-tag {
+    font-family: var(--mono);
+    font-size: 9.5px;
+    letter-spacing: 0.08em;
+    padding: 2px 7px;
+    border-radius: 3px;
+    background: rgba(253,224,71,0.08);
+    color: #fde047;
+    border: 1px solid rgba(253,224,71,0.2);
+  }
+
   /* ── FinOps & Security Over The Years ── */
   .finops-layout {
     display: grid;
@@ -1569,6 +1638,40 @@
           <span class="tag it">Hiring</span>
           <span class="tag it">IT Team</span>
         </div>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- KEY ACHIEVEMENTS -->
+  <div class="section-title">Key Achievements</div>
+  <div class="ach-grid">
+
+    <div class="ach-card">
+      <div class="ach-card-icon">🏆</div>
+      <div class="ach-card-title">AWS → GCP Migration — Zero Downtime</div>
+      <div class="ach-card-sub">AWS · GCP · December 2019</div>
+      <div class="ach-card-desc">Migrated the application, storage, and database from AWS to GCP in December 2019 — executed the full cutover with zero downtime, keeping services available to users throughout the transition.</div>
+      <div class="ach-card-tags">
+        <span class="ach-tag">AWS</span>
+        <span class="ach-tag">GCP</span>
+        <span class="ach-tag">Application</span>
+        <span class="ach-tag">Storage</span>
+        <span class="ach-tag">Database</span>
+        <span class="ach-tag">Zero Downtime</span>
+      </div>
+    </div>
+
+    <div class="ach-card">
+      <div class="ach-card-icon">🏆</div>
+      <div class="ach-card-title">GCP → Azure Workload Migration</div>
+      <div class="ach-card-sub">GCP · Azure · 2022</div>
+      <div class="ach-card-desc">Migrated cloud workloads from GCP to Azure in 2022 — replatforming running services onto Azure infrastructure while maintaining operational continuity.</div>
+      <div class="ach-card-tags">
+        <span class="ach-tag">GCP</span>
+        <span class="ach-tag">Azure</span>
+        <span class="ach-tag">Workload Migration</span>
+        <span class="ach-tag">Multi-Cloud</span>
       </div>
     </div>
 
