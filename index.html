@@ -401,15 +401,6 @@
     border: 1px solid rgba(93,255,176,0.2);
   }
 
-  /* Monthly day-log */
-  .log-card li.off-day { opacity: 0.45; }
-  .log-shift {
-    font-family: var(--mono);
-    font-size: 10.5px;
-    font-weight: 400;
-    color: var(--muted);
-  }
-
   /* Footer */
   footer {
     border-top: 1px solid var(--border);
@@ -1634,6 +1625,14 @@
             <span class="month-tag">July</span>
             <span class="month-text"><strong>Cloud Infrastructure:</strong> Verified billing and usage logs to validate scheduling policies. Investigated and resolved Azure Key Vault access/billing issues. <strong>GCP Operations:</strong> Monitored billing access, resolved provisioning/permission issues. Performed daily oversight of GCP workloads. <strong>Security:</strong> Continuous WordPress vulnerability remediation. Managed GWS security alerts. Daily CRM authentication and login log reviews. <strong>Platform:</strong> Updated Metabase dashboard. Upgraded CapRover container images. Renewed SSL certificates for ODK and CRM servers. <strong>Additional Support:</strong> Monitored Firebase Crashlytics for app errors. Actively monitored Gemini API usage. Managed Google Search Console configurations. Linked Google Business Profile with Google Analytics.</span>
           </div>
+          <div class="month-item">
+            <span class="month-tag">Aug</span>
+            <span class="month-text"><strong>Infrastructure & Maintenance:</strong> Daily infrastructure health checks, server status reviews, OS security patches & system configurations. Routine server maintenance, container image updates, log auditing, backup verification & cloud storage synchronization. <strong>FinOps & Billing:</strong> Processed GCP July invoice (₹5,799) & submitted to Finance. Audited & forwarded Azure July invoice (₹95,798) to Accounts team. Coordinated Brio payment reminders & UTR reconciliation with Brio Credit Controller. <strong>IT Support & Assets:</strong> Managed onboarding credentials & IT asset allocations. Laptop hardware repairs & display troubleshooting. Asset inspection, peripheral allocation & inventory updates. Department software installs, GWS licensing compliance & Drive permission updates. IT helpdesk tickets for office & remote workforce. Offboarding — access review, account cleanup & credential revocation. <strong>Incidents & Monitoring:</strong> Investigated Anaxee website 503 service alert & verified recovery. Responded to Nodemation 502 alerts & website/Maps timeouts. Monitored network switches & Wi-Fi stability. Diagnosed OS performance degradation & memory utilization issues; CRM upgrades. Endpoint security scans. <strong>Reporting:</strong> Reviewed Google Cloud DNS policy change notifications & AWS certification updates. Compiled August IT logs, attendance sheet & monthly work report.</span>
+          </div>
+          <div class="month-item">
+            <span class="month-tag">Sep</span>
+            <span class="month-text"><strong>Cloud & FinOps:</strong> GCP Gemini API bill investigation. Monthly Azure FinOps discussion. Azure storage buckets moved from hot to cold tier. Azure Advisor VM recommendations; ODK server VM resize & Azure SQL resizing discussions. Cloud budget alerts & VM metrics review. Evaluated <strong>Rustabase</strong> (self-hostable Postgres) as an alternative to App Engine & Azure Functions for cost optimization. <strong>CapRover & Servers:</strong> Removed failed containers. Container log review. Upgraded CapRover to latest version. Fixed Certbot issue on CapRover. Monitored RAM usage after ODK server downsize. <strong>WordPress & Security:</strong> Patched critical Unauthenticated Path Traversal vulnerability (CVE-2026-87902). Fixed Newsletter & CF7 plugin conflict. Fixed reCAPTCHA shortcode display issue. Scheduled WordPress maintenance (anaxee web & blogs). App password setup for sales email. <strong>Google & Zoho:</strong> Google Analytics & Search Console queries (YouTube-related). Search Console access management. Zoho Access Management & Workspace security (DKIM, 2FA). <strong>Partner App & Web:</strong> Campaign creation mockups feedback & campaign discussions with <strong>Ayush</strong> (Anaxee Partner web-app). WhatsApp bot button integration. Anaxee website revamped — documentation, UI/UX & backend skill upgrades, popup form. <strong>HR & IT:</strong> Evaluated <strong>Manatal</strong> & documentation for FreshTeam → Manatal migration; switched career page scripts for Manatal integration. IT assets sheet update for new employee. Monthly attendance mail. Vikas Sir's Notebook LLM issue (support44). Reviewed GWS asset sheets.</span>
+          </div>
         </div>
         <div class="tag-row">
           <span class="tag cloud">FinOps</span>
@@ -2176,83 +2175,6 @@
         <li>Verified CSV export working correctly post-fix</li>
       </ul>
       <span class="status-badge">✓ Resolved</span>
-    </div>
-
-    <div class="log-card" style="grid-column: 1 / -1;">
-      <div class="log-date">August 2026</div>
-      <h4>August 2026 — Daily IT & Cloud Operations Log <span class="log-shift">(09:00 AM – 06:30 PM)</span></h4>
-      <ul>
-        <li><strong>01 Aug · Sat:</strong> Infrastructure health check, server status review & backup checks</li>
-        <li class="off-day">02 Aug · Sun — Off</li>
-        <li><strong>03 Aug · Mon:</strong> Resolved user server connectivity & local network troubleshooting (CapRover)</li>
-        <li><strong>04 Aug · Tue:</strong> Deployed OS security patches & system configurations across servers</li>
-        <li><strong>05 Aug · Wed:</strong> Managed new onboarding credentials & IT asset allocations</li>
-        <li><strong>06 Aug · Thu:</strong> Routine server maintenance, container image updates & system cleanup</li>
-        <li><strong>07 Aug · Fri:</strong> Processed GCP July invoice (Inv #202606165 / ₹5,799.00) and submitted to Finance</li>
-        <li><strong>08 Aug · Sat:</strong> Server log auditing, backup verification & weekly maintenance tasks</li>
-        <li class="off-day">09 Aug · Sun — Off</li>
-        <li><strong>10 Aug · Mon:</strong> Routine data backup validation & cloud storage synchronization</li>
-        <li><strong>11 Aug · Tue:</strong> Received, reviewed and audited Azure July invoice (Inv #202606483 / ₹95,798.00)</li>
-        <li><strong>12 Aug · Wed:</strong> Forwarded Azure cloud invoice to Accounts team and maintained invoice records</li>
-        <li><strong>13 Aug · Thu:</strong> User laptop hardware repairs, display troubleshooting & device diagnostics</li>
-        <li><strong>14 Aug · Fri:</strong> Reviewed Brio payment reminders for Azure/GCP invoices and coordinated with Finance</li>
-        <li class="off-day">15 Aug · Sat — Independence Day</li>
-        <li class="off-day">16 Aug · Sun — Off</li>
-        <li><strong>17 Aug · Mon:</strong> Assets (laptop hardware) inspection, peripheral allocation & asset inventory updates</li>
-        <li><strong>18 Aug · Tue:</strong> Installed department software, applied updates & verified licensing compliance (GWS)</li>
-        <li><strong>19 Aug · Wed:</strong> GWS configuration & Drive permission updates & user support</li>
-        <li><strong>20 Aug · Thu:</strong> IT helpdesk ticket resolution (Crashlytics) for office and remote workforce</li>
-        <li><strong>21 Aug · Fri:</strong> User access review, account cleanup & credential revocation for offboarded employees</li>
-        <li><strong>22 Aug · Sat:</strong> Routine system maintenance, endpoint health checks & weekend server review</li>
-        <li class="off-day">23 Aug · Sun — Off</li>
-        <li><strong>24 Aug · Mon:</strong> Cloud invoice UTR reconciliation follow-up with Brio Credit Controller</li>
-        <li><strong>25 Aug · Tue:</strong> Shweta's CRM case query (case creation issue); reviewed Anaxee Partner crash reports & checked Google invoices</li>
-        <li><strong>26 Aug · Wed:</strong> Investigated Anaxee website 503 service alert, verified recovery, monitored network switches and Wi-Fi stability</li>
-        <li><strong>27 Aug · Thu:</strong> Diagnosed OS performance degradation, memory utilization issues and CRM upgrades</li>
-        <li><strong>28 Aug · Fri:</strong> Responded to Nodemation 502 alerts, Anaxee website/Maps timeout monitoring, service recovery validation & endpoint security scans</li>
-        <li><strong>29 Aug · Sat:</strong> Reviewed application crash reports, verified website uptime logs and monitored service availability</li>
-        <li class="off-day">30 Aug · Sun — Off</li>
-        <li><strong>31 Aug · Mon:</strong> Reviewed Google Cloud DNS policy change notifications, AWS certification updates; compiled August IT logs, attendance sheet and monthly work report</li>
-      </ul>
-      <span class="status-badge">✓ Month Logged</span>
-    </div>
-
-    <div class="log-card" style="grid-column: 1 / -1;">
-      <div class="log-date">September 2026</div>
-      <h4>September 2026 — Daily IT & Cloud Operations Log <span class="log-shift">(09:00 AM – 06:30 PM)</span></h4>
-      <ul>
-        <li><strong>01 Sep · Tue:</strong> Google Analytics and Brio TDS-related queries; removed failed containers (CapRover)</li>
-        <li><strong>02 Sep · Wed:</strong> GCP Gemini API bill investigation; FinOps discussion for the month (Azure)</li>
-        <li><strong>03 Sep · Thu:</strong> Monthly attendance mail; provided feedback on campaign creation mockups (Anaxee Partner web-app)</li>
-        <li><strong>04 Sep · Fri:</strong> CapRover/CRM server disk downgrade activity check; Anaxee Partner web-app campaign discussion with Ayush</li>
-        <li><strong>05 Sep · Sat:</strong> Storage accounts billing activity (Azure); checked all buckets and changed tier from hot to cold</li>
-        <li class="off-day">06 Sep · Sun — Off</li>
-        <li><strong>07 Sep · Mon:</strong> Search Console (YouTube-related queries)</li>
-        <li><strong>08 Sep · Tue:</strong> VM resize (ODK server); Azure Advisor; Azure SQL resizing discussion</li>
-        <li><strong>09 Sep · Wed:</strong> Zoho Access Management and Zoho Workspace security (DKIM, 2FA)</li>
-        <li><strong>10 Sep · Thu:</strong> Daily observability &amp; routine tasks; WordPress plugin conflict — Newsletter &amp; CF7</li>
-        <li><strong>11 Sep · Fri:</strong> Search Console access management; fixed reCAPTCHA shortcode display issue; WhatsApp bot button integration</li>
-        <li><strong>12 Sep · Sat:</strong> Monitoring RAM usage after degrading the ODK server; Anaxee website revamped documentation</li>
-        <li class="off-day">13 Sep · Sun — Off</li>
-        <li><strong>14 Sep · Mon:</strong> Cloud budget alerts; VM metrics; Azure FinOps</li>
-        <li><strong>15 Sep · Tue:</strong> Azure Advisor recommendations for virtual machine changes</li>
-        <li><strong>16 Sep · Wed:</strong> UI/UX skill upgrade for Anaxee revamped</li>
-        <li><strong>17 Sep · Thu:</strong> Container logs on CapRover; CapRover updated to latest version</li>
-        <li><strong>18 Sep · Fri:</strong> Evaluated Manatal &amp; its documentation for migration (FreshTeam → Manatal)</li>
-        <li class="off-day">19 Sep · Sat — Off</li>
-        <li class="off-day">20 Sep · Sun — Off</li>
-        <li><strong>21 Sep · Mon:</strong> IT assets sheet update for allocation to a new employee</li>
-        <li><strong>22 Sep · Tue:</strong> Server Certbot issue on CapRover; app password for sales email</li>
-        <li><strong>23 Sep · Wed:</strong> Critical Unauthenticated Path Traversal vulnerability patched in WordPress (CVE-2026-87902)</li>
-        <li><strong>24 Sep · Thu:</strong> Anaxee revamped — backend skill upgrade</li>
-        <li><strong>25 Sep · Fri:</strong> WordPress unavailable for scheduled maintenance (anaxee web &amp; blog web)</li>
-        <li><strong>26 Sep · Sat:</strong> Changed career page scripts on Anaxee website (Manatal integration); FreshTeam widget removed from website</li>
-        <li class="off-day">27 Sep · Sun — Off</li>
-        <li><strong>28 Sep · Mon:</strong> Orbit &amp; Atis discussion with Ayush; other daily activities</li>
-        <li><strong>29 Sep · Tue:</strong> Vikas Sir's Notebook LLM issue (support44); reviewed GWS asset sheets</li>
-        <li><strong>30 Sep · Wed:</strong> Evaluated Rustabase — self-hostable Postgres (alternative for App Engine &amp; Azure Functions) for FinOps; Anaxee website popup form</li>
-      </ul>
-      <span class="status-badge">✓ Month Logged</span>
     </div>
   </div>
 
